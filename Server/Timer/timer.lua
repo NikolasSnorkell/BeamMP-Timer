@@ -23,15 +23,17 @@ function onChatMessage(senderID, name, message)
                     break
                 else
                     minutes = tonumber(i)
-                    if minutes == nil then
+                    if minutes == nil or minutes < 0 then
                         MP.SendChatMessage(-1, "[TIMER] ENTERED INVALID VALUE")
+                        stopCommand = true
                         break
                     end
                 end
             elseif length == 2 then
                 seconds = tonumber(i)
-                if seconds == nil then
+                if seconds == nil or seconds < 0 then
                     MP.SendChatMessage(-1, "[TIMER] ENTERED INVALID VALUE")
+                    stopCommand = true
                     break
                 end
             end
